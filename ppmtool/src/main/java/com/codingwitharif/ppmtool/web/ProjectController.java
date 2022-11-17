@@ -44,4 +44,10 @@ public ResponseEntity<?> getProjectById(@PathVariable String projectId){
     }
     @GetMapping("/all")
     public List<Project>getAllProjects(){return  projectService.findAllProjects();}
+    @DeleteMapping("/{projectId}")
+    public ResponseEntity<?>deleteProject(@PathVariable String projectId){
+        projectService.deleteProjectByIdentifier(projectId.toUpperCase());
+        return  new ResponseEntity<String >("project with ID : '"+projectId.toUpperCase()+"' deleted.",HttpStatus.OK);
+    }
+
 }

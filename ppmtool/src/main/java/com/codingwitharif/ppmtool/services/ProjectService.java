@@ -21,6 +21,7 @@ public class ProjectService {
         }
 
     }
+
     public Project findProjectByIdentifier(String projectId){
         Project project = projectRepository.findByProjectIdentifier(projectId.toUpperCase());
         if(project == null){
@@ -31,5 +32,12 @@ public class ProjectService {
     public List<Project> findAllProjects(){
         return  projectRepository.findAll();
 
+    }
+    public void deleteProjectByIdentifier(String projectId){
+        Project project = projectRepository.findByProjectIdentifier(projectId);
+        if(project==null){
+            throw new ProjectIdException(("Cannot Project with ID: '"+projectId+"'.This project Doesnt exist"));
+        }
+         projectRepository.delete(project);
     }
 }

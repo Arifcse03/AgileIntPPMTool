@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Update User</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+</head>
+
+<body>
+<div class="container my-5">
+    <h3> Update Project</h3>
+    <div class="card">
+        <div class="card-body">
+            <div class="col-md-8">
+                <form action="#" th:action="@{/project/update/{id}(id=${project.id})}" th:object="${project}" method="post">
+                    <div class="row">
+                        <div class="form-group col-md-6">
+                            <label for="projectName" class="col-form-label">Project Name</label> <input type="text" th:field="*{projectName}" class="form-control" id="projectName" placeholder="projectName"> <span th:if="${#fields.hasErrors('projectName')}" th:errors="*{projectName}" class="text-danger"></span>
+                        </div>
+                        <div class="form-group col-md-8">
+                            <label for="projectIdentifier" class="col-form-label">Project Identifier</label> <input type="text" th:field="*{projectIdentifier}" class="form-control" id="projectIdentifier" placeholder="projectIdentifier"> <span th:if="${#fields.hasErrors('projectIdentifier')}" th:errors="*{projectIdentifier}" class="text-danger"></span>
+                        </div>
+                        <div class="form-group col-md-8">
+                            <label for="description" class="col-form-label">Description</label> <input type="text" th:field="*{description}" class="form-control" id="description" placeholder="description"> <span th:if="${#fields.hasErrors('description')}" th:errors="description" class="text-danger"></span>
+                        </div>
+                        <div class="form-group col-md-8">
+                            <label for="start_date" class="col-form-label">Start Date</label> <input type="Date" th:field="*{start_date}" class="form-control" id="start_date" placeholder="start_date"> <span th:if="${#fields.hasErrors('start_date')}" th:errors="start_date" class="text-danger"></span>
+                        </div>
+                        <div class="form-group col-md-8">
+                            <label for="end_date" class="col-form-label">End Date</label> <input type="Date" th:field="*{end_date}" class="form-control" id="end_date" placeholder="end_date"> <span th:if="${#fields.hasErrors('end_date')}" th:errors="end_date" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group col-md-8">
+                            <input type="submit" class="btn btn-primary" value="Update Project">
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+
+</html>

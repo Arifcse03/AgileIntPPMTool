@@ -37,4 +37,13 @@ public class Project {
     private Date created_At;
     @JsonFormat(pattern = "yyyy-mm-dd")
     private Date updated_At;
+    @PrePersist
+    protected void onCreate(){
+        this.created_At = new Date();
+    }
+
+    @PreUpdate
+    protected void onUpdate(){
+        this.updated_At = new Date();
+    }
 }
